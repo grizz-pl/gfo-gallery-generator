@@ -1,0 +1,56 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+img{
+	border: none;	/* firefox */
+}
+
+html,body {
+	height:100%;
+}
+
+body{
+	font-family: font: "Verdana" , sans-serif;
+	background-color: #ffffff;
+	color: black;
+	display: table
+}
+
+a{
+	color: gray;
+}
+
+a:visited{
+	color: gray;
+}
+
+#content{
+	width: 10%;
+	display: table-cell; 
+	vertical-align: middle; 
+	position: static;
+}
+
+#inner{
+	width: 750px;	
+   	margin-left: auto;
+   	margin-right: auto;
+}
+
+#albumlinks{
+	text-align: center;
+}
+
+#footer{
+	font-size: 8px;
+	list-style-type: none;
+	text-align: center;
+	margin-top: 5px
+}
+
+
+.clear{
+	clear: both;
+}
