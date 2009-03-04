@@ -9,3 +9,40 @@ __license__   = "GPL"
 __copyright__ = "Witold Firlej"
 
 import os,sys
+
+def about ():
+	"""About project"""
+	about = "______________\n" + __project__ + " ver. " + __version__ + " by " + __author__ + "\n\n"
+	return about
+
+def help ():
+	""" Printing help """
+	print about()
+	try:
+		if sys.argv[1] == "--help":
+			print "OPTIONS:\n" \
+							+ "--help\t Print this information\n" \
+							+ "-v\t Be verbose\n" \
+							+ "-p filename\t Generate albumPropFile with album properties\n" \
+							+ "-g albumPropFile\t Generate whole gallery"
+	except IndexError:
+		pass
+
+def verbose (msg):
+	try:
+		if sys.argv[1] == "-v":
+			print msg;
+	except IndexError:
+		pass
+		
+def generateAlbumPropFile ():
+	""" Generate file with albums properties"""
+
+def generateGallery(albumPropFile):
+	""" Generate whole gallery """
+
+def main ():
+	""" main loop """
+	help()
+
+main() # run main loop
