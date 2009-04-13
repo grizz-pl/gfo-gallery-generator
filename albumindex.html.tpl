@@ -1,5 +1,5 @@
 <head>
-  <title>Witold Firlej :: photography</title>
+  <title>[[[ALBUMTITLE]]]</title>
   <meta name="GENERATOR" content="galeria.firlejorg generator + vim" />
   <meta name="AUTHOR" content="Witold Firlej" />
 <script type="text/javascript" src="highslide/highslide-full.js"></script>
@@ -30,19 +30,8 @@
 </head>
 <body>
 	<div id="content">
-		<div id="inner">
-			<p><a href="." alt="home"><img src="logo.png" alt="home" /></a></p>
-				<a href="intro.jpg" alt="home" class="highslide" onclick="return hs.expand(this)"><img src="thumb.jpg" alt="home" /></a>
-				<a href="intro.jpg" alt="home" class="highslide" onclick="return hs.expand(this)"><img src="thumb.jpg" alt="home" /></a>
-				<a href="intro.jpg" alt="home" class="highslide" onclick="return hs.expand(this)"><img src="thumb.jpg" alt="home" /></a>
-				<a href="intro.jpg" alt="home" class="highslide" onclick="return hs.expand(this)"><img src="thumb.jpg" alt="home" /></a>
-				<a href="intro.jpg" alt="home" class="highslide" onclick="return hs.expand(this)"><img src="thumb.jpg" alt="home" /></a>
-			<p><a href="intro.jpg" alt="home"><img src="thumb.jpg" alt="home" /></a>
-				<a href="intro.jpg" alt="home"><img src="thumb.jpg" alt="home" /></a>
-				<a href="intro.jpg" alt="home"><img src="thumb.jpg" alt="home" /></a>
-				<a href="intro.jpg" alt="home"><img src="thumb.jpg" alt="home" /></a>
-				<a href="intro.jpg" alt="home"><img src="thumb.jpg" alt="home" /></a></p>
-			<p id="albumlinks"><a href="landscape.html">Landscape</a> || <a href="urban.html">Urban &amp; Architecture</a>  || <a href="fauna.html">Fauna</a></p>
+		<div id="inner">[[[FOTO]]]
+			<p id="albumlinks">[[[ALBUMSLIST]]]</p>
 		</div>
 		<div id="footer">
 			<p><a href="http://grizz.pl">http://grizz.pl/</a></p>
