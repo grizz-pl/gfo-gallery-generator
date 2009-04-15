@@ -2,3 +2,10 @@
 *~
 *.swp
 *.pyc
+albums/
+highslide-4.0.12/
+highslide/
+intro.jpg
+thumb.jpg
+
+output

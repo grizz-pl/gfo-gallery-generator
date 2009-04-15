@@ -8,7 +8,7 @@ __version__	= "0.1"
 __license__	= "GPL"
 __copyright__	= "Witold Firlej"
 
-import os,sys
+import os,sys,ConfigParser
 
 def about ():
 	"""About project"""
@@ -47,14 +47,29 @@ def getAlbumsConfig ():
 
 	@return a list with properties
 	"""
+	config = ConfigParser.ConfigParser()
+	config.read("galeria.firlej.org.conf")
+	albumslist = []
+	for section in config.sections():
+		if not section == "main": 			# skip main section
+			album = (config.get(section, "name"), config.get(section, "desc"), config.get(section, "folder"))
+			albumslist.append(album)
+	return albumslist
 
-def generateGallery(albumPropFile):
+def generateGallery(albumslist):
 	"""
 	Generate whole gallery 
 	"""
+	print albumslist
+	for name, desc, folder in albumslist:
+		verbose("Album's name:\t" + name)
+		verbose("Album's description:\t" + desc)
+		verbose("Album's folder:\t" + folder)
+		verbose("===")
 
 def main ():
 	""" main loop """
-	help()
+	#help()
+	generateGallery(getAlbumsConfig())
 
 main() # run main loop
