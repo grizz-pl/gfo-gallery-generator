@@ -61,12 +61,18 @@ def generateGallery(albumslist):
 	Generate whole gallery 
 	"""
 	print albumslist
+	# przeskanuj listę  dla każdego albumu wpisz nazwe z desc jako nazwe liku do strony name.html i zapisz to do stringa, który potem bedzie wstawiony w [[[ALBUMSLIST]]]
+
 	for name, desc, folder in albumslist:
 		verbose("Album's name:\t" + name)
 		verbose("Album's description:\t" + desc)
 		verbose("Album's folder:\t" + folder)
 		verbose("===")
-
+		#weź sprawdź folder i dla każdego zdjęcia (jpg|JPG) w folderze
+		### Dodaj do stringa wstawianego w miejsce [[[FOTO]]] string zawierajacy cały kod htmla jednego zdjecia
+		# weź albumslist.html.tpl i w miesce [[[foto]]] wstaw powyżej wygenerowany string a w miejsce [[[ALBUMTITLE]]] wstaw string wygenerowany w poprzedniej pętli.
+		
+ 		# weź wygeneruj index.html kapiujac FIRSTALBUM jako index, czyli w sumie index.html.tpl jest niepotrzebny jak narazie
 def main ():
 	""" main loop """
 	#help()
