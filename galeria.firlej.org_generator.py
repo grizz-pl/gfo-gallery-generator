@@ -134,7 +134,7 @@ def makethumb(infile):
 		lower = width + upper
 	img = img.crop((left, upper, right, lower))
 	img.thumbnail(THUMB_SIZE, Image.ANTIALIAS)
-	outfile = infile[:-4] + "_thumb.jpg"
+	outfile = infile[:-4] + "_thumb.jpeg" 					### *.jpeg allow to skip generate thumnails of thumbnails
 	#print infile + " ==> " + outfile
 	img.save(outfile, "JPEG")
 	return outfile
