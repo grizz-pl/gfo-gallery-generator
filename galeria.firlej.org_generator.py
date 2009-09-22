@@ -50,7 +50,7 @@ def verbose (msg):
 	except IndexError:
 		pass
 		
-def generateAlbumPropFile ():				###TODO maybe in the futere to entitle and descroibe each photo
+def generateAlbumPropFile ():				###TODO maybe in the future to entitle and descroibe each photo
 	"""
 	Generate file with each album properties inside album folder
 	"""
