@@ -22,7 +22,7 @@ __version__	= "0.1"
 __license__	= "GPL"
 __copyright__	= "Witold Firlej"
 
-import os,sys,ConfigParser
+import os,sys,ConfigParser,glob,Image
 
 def about ():
 	"""About project"""
@@ -75,6 +75,8 @@ def generateGallery(albumslist):
 	Generate whole gallery 
 	"""
 	print albumslist
+	ALBUMSLIST = ""
+	FOTO = ""
 	# przeskanuj listę  dla każdego albumu wpisz nazwe z desc jako nazwe liku do strony name.html i zapisz to do stringa, który potem bedzie wstawiony w [[[ALBUMSLIST]]]
 
 	for name, desc, folder in albumslist:
@@ -82,11 +84,50 @@ def generateGallery(albumslist):
 		verbose("Album's description:\t" + desc)
 		verbose("Album's folder:\t" + folder)
 		verbose("===")
+		ALBUMSLIST += "<a href=\"" + name + ".html\">" + desc + "</a> || "
+
 		#weź sprawdź folder i dla każdego zdjęcia (jpg|JPG) w folderze
 		### Dodaj do stringa wstawianego w miejsce [[[FOTO]]] string zawierajacy cały kod htmla jednego zdjecia
+		for infile in glob.glob(folder + "/*.[jJ][pP][gG]"): 		# list both .jpg and JPG
+			thumb = makethumb(infile)
+			FOTO += "<a href=\""+ infile + "\" alt=\"kliknij lewym przyciskiem / left click, please\" onclick=\"return hs.expand(this)\"><img src=\"" + thumb + "\" alt=\"photo\" /></a>"
+			print FOTO
+#							<a href="intro.jpg" alt="home" class="highslide" onclick="return hs.expand(this)"><img src="thumb.jpg" alt="home" /></a>
+
 		# weź albumslist.html.tpl i w miesce [[[foto]]] wstaw powyżej wygenerowany string a w miejsce [[[ALBUMTITLE]]] wstaw string wygenerowany w poprzedniej pętli.
 		
+	print ALBUMSLIST ###XXX DEBUG
+
  		# weź wygeneruj index.html kapiujac FIRSTALBUM jako index, czyli w sumie index.html.tpl jest niepotrzebny jak narazie
+def makethumb(infile):
+	"""
+	Make square thumbnail and 
+	@returtn thumb name
+	"""
+	THUMB_SIZE = 125, 125
+
+	img = Image.open(infile)
+	width, height = img.size
+
+	if width > height:
+		delta = width - height
+		left = int(delta/2)
+		upper = 0
+		right = height + left
+		lower = height
+	else:
+		delta = height - width
+		left = 0
+		upper = int(delta/2)
+		right = width
+		lower = width + upper
+	img = img.crop((left, upper, right, lower))
+	img.thumbnail(THUMB_SIZE, Image.ANTIALIAS)
+	outfile = infile[:-4] + "_thumb.jpg"
+	#print infile + " ==> " + outfile
+	img.save(outfile, "JPEG")
+	return outfile
+
 def main ():
 	""" main loop """
 	#help()
