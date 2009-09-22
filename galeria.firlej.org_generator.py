@@ -74,14 +74,12 @@ def generateGallery(albumslist):
 	"""
 	Generate whole gallery 
 	"""
-	print albumslist
+
+# przeskanuj listę  dla każdego albumu wpisz nazwe z desc jako nazwe liku do strony name.html i zapisz to do stringa, który potem bedzie wstawiony w [[[ALBUMSLIST]]]
 	ALBUMSLIST = "|| "
-	# przeskanuj listę  dla każdego albumu wpisz nazwe z desc jako nazwe liku do strony name.html i zapisz to do stringa, który potem bedzie wstawiony w [[[ALBUMSLIST]]]
-
-
 	for name, desc, folder in albumslist: 			### Generate albumlist
 		ALBUMSLIST += "<a href=\"" + name + ".html\">" + desc + "</a> || "
-	
+
 	for name, desc, folder in albumslist: 			### generate each subpage
 		verbose("Album's name:\t" + name)
 		verbose("Album's description:\t" + desc)
@@ -112,9 +110,6 @@ def generateGallery(albumslist):
 				albumdest.write(s.replace("[[[FOTO]]]", FOTO))
 		albumdest.close()
 	
-
-		# weź albumslist.html.tpl i w miesce [[[foto]]] wstaw powyżej wygenerowany string a w miejsce [[[ALBUMTITLE]]] wstaw string wygenerowany w poprzedniej pętli.
-		
 
  		# weź wygeneruj index.html kapiujac FIRSTALBUM jako index, czyli w sumie index.html.tpl jest niepotrzebny jak narazie
 def makethumb(infile):
