@@ -101,7 +101,10 @@ def generateGallery(albumslist):
 		albumtemplate = open("albumindex.html.tpl").readlines()
 		albumdest = open(name + ".html", 'w')
 		for s in albumtemplate:
-			albumdest.write(s.replace("[[[FOTO]]]", FOTO))
+			if s.find("[[[ALBUMTITLE]]]") != -1:
+				albumdest.write(s.replace("[[[ALBUMTITLE]]]", desc))
+			else:
+				albumdest.write(s.replace("[[[FOTO]]]", FOTO))
 		albumdest.close()
 	
 
@@ -134,7 +137,7 @@ def makethumb(infile):
 		lower = width + upper
 	img = img.crop((left, upper, right, lower))
 	img.thumbnail(THUMB_SIZE, Image.ANTIALIAS)
-	outfile = infile[:-4] + "_thumb.jpeg" 					### *.jpeg allow to skip generate thumnails of thumbnails
+	outfile = infile[:-4] + "_thumb.jpeg" 					### allow to skip generate thumnails of thumbnails
 	#print infile + " ==> " + outfile
 	img.save(outfile, "JPEG")
 	return outfile
