@@ -94,7 +94,7 @@ def generateGallery(albumslist):
 		for infile in glob.glob(folder + "/*.[jJ][pP][gG]"): 		# list both .jpg and JPG 
 			thumb = makethumb(infile)
 			FOTO += "<a href=\""+ infile + "\" alt=\"kliknij lewym przyciskiem / left click, please\" onclick=\"return hs.expand(this)\"><img src=\"" + thumb + "\" alt=\"photo\" /></a>\n"
-			if i%5 ==0: 											# only 5 images in each row
+			if i%6==0: 											# only 6 images in each row
 				FOTO +="<p>"
 			i += 1
 
