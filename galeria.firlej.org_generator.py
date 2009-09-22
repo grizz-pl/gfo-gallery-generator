@@ -76,7 +76,6 @@ def generateGallery(albumslist):
 	"""
 	print albumslist
 	ALBUMSLIST = ""
-	FOTO = ""
 	# przeskanuj listę  dla każdego albumu wpisz nazwe z desc jako nazwe liku do strony name.html i zapisz to do stringa, który potem bedzie wstawiony w [[[ALBUMSLIST]]]
 
 	for name, desc, folder in albumslist:
@@ -88,11 +87,23 @@ def generateGallery(albumslist):
 
 		#weź sprawdź folder i dla każdego zdjęcia (jpg|JPG) w folderze
 		### Dodaj do stringa wstawianego w miejsce [[[FOTO]]] string zawierajacy cały kod htmla jednego zdjecia
-		for infile in glob.glob(folder + "/*.[jJ][pP][gG]"): 		# list both .jpg and JPG
+		i = 1														# itterator for inserting new line<p>
+		FOTO = "<p>"
+		for infile in glob.glob(folder + "/*.[jJ][pP][gG]"): 		# list both .jpg and JPG 
 			thumb = makethumb(infile)
-			FOTO += "<a href=\""+ infile + "\" alt=\"kliknij lewym przyciskiem / left click, please\" onclick=\"return hs.expand(this)\"><img src=\"" + thumb + "\" alt=\"photo\" /></a>"
-			print FOTO
-#							<a href="intro.jpg" alt="home" class="highslide" onclick="return hs.expand(this)"><img src="thumb.jpg" alt="home" /></a>
+			FOTO += "<a href=\""+ infile + "\" alt=\"kliknij lewym przyciskiem / left click, please\" onclick=\"return hs.expand(this)\"><img src=\"" + thumb + "\" alt=\"photo\" /></a>\n"
+			if i%5 ==0: 											# only 5 images in each row
+				FOTO +="<p>"
+			i += 1
+
+			print FOTO ###XXX DEBUG
+
+		albumtemplate = open("albumindex.html.tpl").readlines()
+		albumdest = open(name + ".html", 'w')
+		for s in albumtemplate:
+			albumdest.write(s.replace("[[[FOTO]]]", FOTO))
+		albumdest.close()
+	
 
 		# weź albumslist.html.tpl i w miesce [[[foto]]] wstaw powyżej wygenerowany string a w miejsce [[[ALBUMTITLE]]] wstaw string wygenerowany w poprzedniej pętli.
 		
