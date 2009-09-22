@@ -81,10 +81,11 @@ def generateGallery(albumslist):
 		ALBUMSLIST += "<a href=\"" + name + ".html\">" + desc + "</a> || "
 
 	for name, desc, folder in albumslist: 			### generate each subpage
+		verbose("===============\n")
 		verbose("Album's name:\t" + name)
 		verbose("Album's description:\t" + desc)
 		verbose("Album's folder:\t" + folder)
-		verbose("===")
+		verbose("===============\n")
 
 		#weź sprawdź folder i dla każdego zdjęcia (jpg|JPG) w folderze
 		### Dodaj do stringa wstawianego w miejsce [[[FOTO]]] string zawierajacy cały kod htmla jednego zdjecia
@@ -97,7 +98,7 @@ def generateGallery(albumslist):
 				FOTO +="<p>"
 			i += 1
 
-			print FOTO ###XXX DEBUG
+			verbose(FOTO) ###XXX DEBUG
 
 		albumtemplate = open("albumindex.html.tpl").readlines()
 		albumdest = open(name + ".html", 'w')
