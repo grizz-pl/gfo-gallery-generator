@@ -2,6 +2,7 @@
 *~
 *.swp
 *.pyc
+*.html
 albums/
 highslide-4.0.12/
 highslide/
