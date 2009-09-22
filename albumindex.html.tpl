@@ -30,7 +30,8 @@
 </head>
 <body>
 	<div id="content">
-		<div id="inner">[[[FOTO]]]
+		<div id="inner"><p><a href="." alt="home"><img src="static/logo.png" alt="home" /></a></p>
+		[[[FOTO]]]
 			<p id="albumlinks">[[[ALBUMSLIST]]]</p>
 		</div>
 		<div id="footer">

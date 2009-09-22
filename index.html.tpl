@@ -13,8 +13,8 @@
 <body>
 	<div id="content">
 		<div id="inner">
-			<p><a href="." alt="home"><img src="logo.png" alt="home" /></a></p>
-			<p>[[[FIRSTALBUM]]]</a></p>
+			<p><a href="." alt="home"><img src="static/logo.png" alt="home" /></a></p>
+			<p><a href="[[[FIRSTALBUM]]]"><img src="static/intro.jpg" alt="first album"/></a></p>
 			<p id="albumlinks">[[[ALBUMSLIST]]]</p>
 		</div>
 		<div id="footer">
