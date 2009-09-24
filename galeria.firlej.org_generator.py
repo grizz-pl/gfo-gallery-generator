@@ -24,8 +24,8 @@ __copyright__	= "Witold Firlej"
 
 import sys,ConfigParser,glob,Image
 
-INDEXTITLE = "Witold Firlej :: photography"
-FOOTER = "<p><a href=\"http://grizz.pl/\"><img src=\"http://grizz.pl/files/images/button_grizzpl.gif\" alt=\"http://grizz.pl\" width=\"80\" height=\"15\" /></a>"
+INDEXTITLE = "" ###XXX remove globals 
+FOOTER = ""
 
 
 def about ():
@@ -67,6 +67,11 @@ def getAlbumsConfig ():
 	"""
 	config = ConfigParser.ConfigParser()
 	config.read("galeria.firlej.org.conf")
+
+	global INDEXTITLE 							###XXX remove globals 
+	global FOOTER
+	INDEXTITLE = config.get("main", "indextitle")
+	FOOTER = config.get("main", "footer")
 	albumslist = []
 	for section in config.sections():
 		if not section == "main": 			# skip main section
@@ -131,6 +136,8 @@ def generateGallery(albumslist):
 			else:
 				albumdest.write(s.replace("[[[FIRSTALBUM]]]", albumslist[0][0] + ".html")) 	#use album with index == 1 as firstalbum
 		albumdest.close()
+		print INDEXTITLE
+		print FOOTER
 
 def makethumb(infile):
 	"""
