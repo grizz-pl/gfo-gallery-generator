@@ -1,6 +1,6 @@
 <head>
   <title>[[[ALBUMTITLE]]]</title>
-  <meta name="GENERATOR" content="galeria.firlejorg generator + vim" />
+  <meta name="GENERATOR" content="gfo gallery generator + vim" />
   <meta name="AUTHOR" content="Witold Firlej" />
 <script type="text/javascript" src="highslide/highslide-full.js"></script>
 <link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
