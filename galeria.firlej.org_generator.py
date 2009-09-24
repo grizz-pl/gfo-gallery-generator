@@ -113,7 +113,7 @@ def generateGallery(albumslist):
 		albumdest = open(name + ".html", 'w')
 		for s in albumtemplate:
 			if s.find("[[[ALBUMTITLE]]]") != -1:
-				albumdest.write(s.replace("[[[ALBUMTITLE]]]", desc))
+				albumdest.write(s.replace("[[[ALBUMTITLE]]]", desc + " :: " + INDEXTITLE))
 			elif s.find("[[[ALBUMSLIST]]]") != -1:
 				albumdest.write(s.replace("[[[ALBUMSLIST]]]", ALBUMSLIST))
 			elif s.find("[[[FOOTER]]]") != -1:
