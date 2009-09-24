@@ -66,7 +66,7 @@ def getAlbumsConfig ():
 	@return a list with properties
 	"""
 	config = ConfigParser.ConfigParser()
-	config.read("galeria.firlej.org.conf")
+	config.read("gfo.conf")
 
 	global INDEXTITLE 							###XXX remove globals 
 	global FOOTER
