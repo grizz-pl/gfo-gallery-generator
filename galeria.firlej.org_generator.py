@@ -136,8 +136,6 @@ def generateGallery(albumslist):
 			else:
 				albumdest.write(s.replace("[[[FIRSTALBUM]]]", albumslist[0][0] + ".html")) 	#use album with index == 1 as firstalbum
 		albumdest.close()
-		print INDEXTITLE
-		print FOOTER
 
 def makethumb(infile):
 	"""
