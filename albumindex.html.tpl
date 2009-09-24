@@ -35,7 +35,7 @@
 			<p id="albumlinks">[[[ALBUMSLIST]]]</p>
 		</div>
 		<div id="footer">
-			<p><a href="http://grizz.pl">http://grizz.pl/</a></p>
+		[[[FOOTER]]]
 		</div>
 	</div>
 

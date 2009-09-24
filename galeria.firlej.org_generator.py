@@ -25,6 +25,8 @@ __copyright__	= "Witold Firlej"
 import sys,ConfigParser,glob,Image
 
 INDEXTITLE = "Witold Firlej :: photography"
+FOOTER = "<p><a href=\"http://grizz.pl/\"><img src=\"http://grizz.pl/files/images/button_grizzpl.gif\" alt=\"http://grizz.pl\" width=\"80\" height=\"15\" /></a>"
+
 
 def about ():
 	"""About project"""
@@ -109,6 +111,8 @@ def generateGallery(albumslist):
 				albumdest.write(s.replace("[[[ALBUMTITLE]]]", desc))
 			elif s.find("[[[ALBUMSLIST]]]") != -1:
 				albumdest.write(s.replace("[[[ALBUMSLIST]]]", ALBUMSLIST))
+			elif s.find("[[[FOOTER]]]") != -1:
+				albumdest.write(s.replace("[[[FOOTER]]]", FOOTER))
 			else:
 				albumdest.write(s.replace("[[[FOTO]]]", FOTO))
 		albumdest.close()
@@ -122,6 +126,8 @@ def generateGallery(albumslist):
 				albumdest.write(s.replace("[[[INDEXTITLE]]]", INDEXTITLE)) 
 			elif s.find("[[[ALBUMSLIST]]]") != -1:
 				albumdest.write(s.replace("[[[ALBUMSLIST]]]", ALBUMSLIST))
+			elif s.find("[[[FOOTER]]]") != -1:
+				albumdest.write(s.replace("[[[FOOTER]]]", FOOTER))
 			else:
 				albumdest.write(s.replace("[[[FIRSTALBUM]]]", albumslist[0][0] + ".html")) 	#use album with index == 1 as firstalbum
 		albumdest.close()
