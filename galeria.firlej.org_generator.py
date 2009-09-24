@@ -22,7 +22,7 @@ __version__	= "0.1"
 __license__	= "GPL"
 __copyright__	= "Witold Firlej"
 
-import os,sys,ConfigParser,glob,Image
+import sys,ConfigParser,glob,Image
 
 def about ():
 	"""About project"""
