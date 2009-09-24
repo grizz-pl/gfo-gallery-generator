@@ -24,6 +24,8 @@ __copyright__	= "Witold Firlej"
 
 import sys,ConfigParser,glob,Image
 
+INDEXTITLE = "Witold Firlej :: photography"
+
 def about ():
 	"""About project"""
 	about = "______________\n" + __project__ + " ver. " + __version__ + " by " + __author__ + "\n\n"
@@ -113,6 +115,17 @@ def generateGallery(albumslist):
 	
 
  		# weź wygeneruj index.html kapiujac FIRSTALBUM jako index, czyli w sumie index.html.tpl jest niepotrzebny jak narazie
+		albumtemplate = open("index.html.tpl").readlines()
+		albumdest = open("index.html", 'w')
+		for s in albumtemplate:
+			if s.find("[[[INDEXTITLE]]]") != -1:
+				albumdest.write(s.replace("[[[INDEXTITLE]]]", INDEXTITLE)) 
+			elif s.find("[[[ALBUMSLIST]]]") != -1:
+				albumdest.write(s.replace("[[[ALBUMSLIST]]]", ALBUMSLIST))
+			else:
+				albumdest.write(s.replace("[[[FIRSTALBUM]]]", albumslist[0][0] + ".html")) 	#use album with index == 1 as firstalbum
+		albumdest.close()
+
 def makethumb(infile):
 	"""
 	Make square thumbnail and 
@@ -146,5 +159,4 @@ def main ():
 	""" main loop """
 	#help()
 	generateGallery(getAlbumsConfig())
-
 main() # run main loop
