@@ -1,6 +1,6 @@
 gfo gallery generator by Witold Firlej
 =============================================
-ver. 0.2
+ver. 0.25
 
 Requirements
 ------------

@@ -18,8 +18,8 @@
 
 __project__	= "gfo gallery generator"
 __author__	= "Witold Firlej (http://grizz.pl)"
-__version__	= "0.2"
-__license__	= "GPL"
+__version__	= "0.25"
+__license__	= "GPL3"
 __copyright__	= "Witold Firlej"
 
 import sys,ConfigParser,glob,Image
@@ -100,7 +100,9 @@ def generateGallery(albumslist):
 		### Dodaj do stringa wstawianego w miejsce [[[FOTO]]] string zawierajacy cały kod htmla jednego zdjecia
 		i = 1														# itterator for inserting new line<p>
 		FOTO = "<p>"
-		for infile in glob.glob(folder + "/*.[jJ][pP][gG]"): 		# list both .jpg and JPG 
+		files = glob.glob(folder + "/*.[jJ][pP][gG]")       # list both .jpg and JPG
+		files.sort() 									# sort files alphabetically
+		for infile in files:
 			thumb = makethumb(infile)
 			FOTO += "<a href=\""+ infile + "\" alt=\"kliknij lewym przyciskiem / left click, please\" onclick=\"return hs.expand(this)\"><img src=\"" + thumb + "\" alt=\"photo\" /></a>\n"
 			if i%6==0: 											# only 6 images in each row
