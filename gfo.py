@@ -18,7 +18,7 @@
 
 __project__	= "gfo gallery generator"
 __author__	= "Witold Firlej (http://grizz.pl)"
-__version__	= "0.25"
+__version__	= "0.26"
 __license__	= "GPL3"
 __copyright__	= "Witold Firlej"
 
@@ -41,9 +41,8 @@ def help ():
 			print "OPTIONS:\n" \
 							+ "--help\t Print this information\n" \
 							+ "-v\t Be verbose\n" \
-							+ "-p filename\t Generate albumPropFile with album properties\n" \
-							+ "-l\t show albums list\n" \
-							+ "-g albumPropFile\t Generate whole gallery"
+							+ "-o\t OneShotMode - generate index.html in current folder"
+
 	except IndexError:
 		pass
 
@@ -139,6 +138,14 @@ def generateGallery(albumslist):
 				albumdest.write(s.replace("[[[FIRSTALBUM]]]", albumslist[0][0] + ".html")) 	#use album with index == 1 as firstalbum
 		albumdest.close()
 
+
+def oneShot():
+	"""
+	OneShotMode
+	"""
+	print "Bang"
+
+
 def makethumb(infile):
 	"""
 	Make square thumbnail and 
@@ -171,5 +178,11 @@ def makethumb(infile):
 def main ():
 	""" main loop """
 	#help()
-	generateGallery(getAlbumsConfig())
+	try:
+		if sys.argv[1] == "--help":
+			help()
+		elif sys.argv[1] == "-o":
+			oneShot()
+	except:
+		generateGallery(getAlbumsConfig())
 main() # run main loop
